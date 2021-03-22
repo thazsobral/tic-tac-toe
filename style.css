@@ -46,8 +46,14 @@ button {
   transition: .5s;
   background: #ffc9c9;
 }
+
 .disable-block {
   background: #ffc9c9;
+}
+
+.winner-block {
+  background: #c9ffc9;
+  cursor: none;
 }
 
 #information {
