@@ -2,6 +2,20 @@ body {
   text-align: center;
 }
 
+footer {
+  font-style: oblique;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  outline: none;
+  background: #ccc;
+  font-size: larger;
+}
+
 #board {
   padding: 5px;
   height: 100%;
@@ -17,9 +31,27 @@ body {
 }
 
 .block {
-  background: gray;
+  margin: 1px;
   height: 100px;
   width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  background: #ccc;
+  font-size: 300%;
+}
+
+.block:hover {
+  transition: .5s;
+  background: #ffc9c9;
+}
+.disable-block {
+  background: #ffc9c9;
+}
+
+#information {
+  font-size: x-large;  
 }
 
 #winner {

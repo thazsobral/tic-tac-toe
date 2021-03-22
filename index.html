@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Tic-Tac-Toe</h1>
+    <h1>Tic-Tac-T#e</h1>
 
     <p>To play, you need two people. Are you ready?</p>
   </header>
@@ -17,19 +17,19 @@
   <main>
     <div id="board">
       <div class="line-board">
-        <div id="1" class="block">1</div>
-        <div id="2" class="block">2</div>
-        <div id="3" class="block">3</div>
+        <div id="1" class="block" onclick="selectPosition(this.id)">1</div>
+        <div id="2" class="block" onclick="selectPosition(this.id)">2</div>
+        <div id="3" class="block" onclick="selectPosition(this.id)">3</div>
       </div>
       <div class="line-board">
-        <div id="4" class="block">4</div>
-        <div id="5" class="block">5</div>
-        <div id="6" class="block">6</div>
+        <div id="4" class="block" onclick="selectPosition(this.id)">4</div>
+        <div id="5" class="block" onclick="selectPosition(this.id)">5</div>
+        <div id="6" class="block" onclick="selectPosition(this.id)">6</div>
       </div>
       <div class="line-board">
-        <div id="7" class="block">7</div>
-        <div id="8" class="block">8</div>
-        <div id="9" class="block">9</div>
+        <div id="7" class="block" onclick="selectPosition(this.id)">7</div>
+        <div id="8" class="block" onclick="selectPosition(this.id)">8</div>
+        <div id="9" class="block" onclick="selectPosition(this.id)">9</div>
       </div>
 
       <div id="information">
@@ -47,5 +47,7 @@
     <p>Game tic-tac-toe created for me with <span id="heart-symbol">❤</span></p>
   </footer>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
