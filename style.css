@@ -30,29 +30,33 @@ button {
   flex-direction: row;
 }
 
-.block {
+.box {
   margin: 1px;
   height: 100px;
   width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: pointer;
-  background: #ccc;
   font-size: 300%;
 }
 
-.block:hover {
+.box-active {
+  cursor: pointer;
+  background: #ccc;
+}
+
+.box-active:hover {
   transition: .5s;
   background: #ffc9c9;
 }
 
-.disable-block {
+.block-box {
   background: #ffc9c9;
 }
 
-.winner-block {
+.winner-box {
   background: #c9ffc9;
+  cursor: none;
 }
 
 #information {
@@ -61,4 +65,9 @@ button {
 
 #winner {
   display: none;
+}
+
+#heart-symbol {
+  font-style: normal;
+  color: rgb(218, 118, 238);
 }
