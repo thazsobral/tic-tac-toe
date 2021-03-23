@@ -1,8 +1,14 @@
 const players = ['x', 'o']
-var currentPlayer = players[0]
-var labelCurrentPlayer = document.getElementById('player')
+var currentPlayer
+var labelCurrentPlayer
 
-replaceLabelPlayer(currentPlayer)
+main()
+
+function main() {
+  currentPlayer = players[0]
+  labelCurrentPlayer = document.getElementById('player')
+  replaceLabelPlayer(currentPlayer)
+}
 
 function selectPosition(id) {
   markPosition(id, currentPlayer)
@@ -77,9 +83,39 @@ function getAllValuesBlocks() {
 }
 
 function markPositionWinner(sequence) {
-  for (const key in sequence) {
-    let block = document.getElementById(key)
-    block.removeAttribute('')
+  sequence.forEach(el => {
+    let block = document.getElementById(el)
+    block.removeAttribute('onclick')
     block.classList.add('winner-block')
+    console.log(el)
+  })
+  disableBoard()
+  
+  // for (const key in sequence) {
+  //   let block = document.getElementById(key)
+  //   block.removeAttribute('onclick')
+  //   block.classList.add('winner-block')
+  //   console.log(key)
+  // }
+}
+
+function disableBoard() {
+  let blocks = document.getElementsByClassName('block')
+  for (const key in blocks) {
+    blocks[key].removeAttribute('onclick')
+  }
+}
+
+function resetGame() {
+  main()
+  resetBoard()
+}
+
+function resetBoard() {
+  let blocks = document.getElementsByClassName('block')
+  for (const key in blocks) {
+    blocks[key].innerHTML = ''
+    blocks[key].setAttribute('class', 'block')
+    blocks[key].setAttribute('onClick', 'selectPosition(this.id)')
   }
 }
