@@ -63,10 +63,6 @@ button {
   font-size: x-large;  
 }
 
-#winner {
-  display: none;
-}
-
 #heart-symbol {
   font-style: normal;
   color: rgb(218, 118, 238);
