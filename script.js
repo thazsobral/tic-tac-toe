@@ -1,7 +1,5 @@
 const players = ['x', 'o']
-var currentPlayer
-var labelCurrentPlayer
-var boxes
+var scores, currentPlayer, labelCurrentPlayer, boxes, information
 
 main ()
 
@@ -10,15 +8,36 @@ function main() {
   labelCurrentPlayer = document.getElementById('player')
   boxes = document.getElementsByClassName('box')
 
-  for (const key in boxes) {
+  for (var key = 0; key < boxes.length; key++) {
     boxes[key].innerHTML = ''
     boxes[key].setAttribute('class', 'box box-active')
     boxes[key].setAttribute('onClick', 'selectionPosition(this.id)')
+  }
+
+  if ( scores == undefined) {
+    createScore()
   }
 }
 
 function reset() {
   main()
+}
+
+function createScore() {
+  information = document.getElementById('information')
+  scores = []
+  let node
+
+  for (const key in players) {
+    node = document.createElement('p')
+
+    node.setAttribute('id', `player-${players[key]}`)
+    node.innerHTML = `${players[key].toUpperCase()}: <span id="score-${players[key]}">0</span>`
+
+    scores[key] = 0
+
+    information.appendChild(node)
+  }
 }
 
 function selectionPosition(id) {
@@ -29,10 +48,12 @@ function selectionPosition(id) {
     boxes[id].removeAttribute('onClick')
     changePlayer()
   } else {
+    scores[players.indexOf(currentPlayer)] += 1
+    document.getElementById(`score-${currentPlayer}`).innerHTML = scores[players.indexOf(currentPlayer)]
     victoryValues.forEach(el => {
       boxes[el].setAttribute('class', 'box winner-box')
     })
-    for(const key in boxes) {
+    for(var key = 0; key < boxes.length; key++) {
       boxes[key].removeAttribute('onClick')
     }
   }
@@ -85,7 +106,7 @@ function seekVictoryValues() {
 
 function getValuesBoxes(boxes) {
   let valuesBoxes = []
-  for (const key in boxes) {
+  for (var key = 0; key < boxes.length; key++)   {
     valuesBoxes.push(boxes[key].innerHTML)
   }
   return valuesBoxes
